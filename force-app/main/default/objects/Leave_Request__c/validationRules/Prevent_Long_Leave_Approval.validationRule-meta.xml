@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Long_Leave_Approval</fullName>
+    <active>true</active>
+    <description>Prevents approval of leave requests exceeding 5 days.</description>
+    <errorConditionFormula>AND(
+    Number_of_Days__c &gt; 5,
+    ISPICKVAL(Status__c, &quot;Approved&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Leave requests exceeding 5 days cannot be approved.</errorMessage>
+</ValidationRule>
